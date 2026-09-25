@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raajanna Military Hotel | Authentic Andhra Experience</title>
+  <meta name="description"
+    content="Raajanna Military Hotel - Authentic spicy Andhra Military Cuisine in Rajahmundry. This isn't just a restaurant. It's an experience.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* Review form */
+    .write-review-section {
+      max-width: 600px;
+      margin: 40px auto 0;
+      text-align: left;
+      background: var(--bg-surface);
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .star-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      justify-content: center;
+    }
+
+    .star-btn {
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: all 0.2s;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .star-btn.active,
+    .star-btn:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    .review-input,
+    .review-select,
+    .review-phone-input {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .review-input:focus,
+    .review-select:focus,
+    .review-phone-input:focus {
+      border-color: var(--crimson-mid);
+    }
+
+    .review-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a84c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+
+    .review-select option,
+    .review-select optgroup {
+      background: #1a0000;
+      color: var(--text-primary);
+    }
+
+    .submit-review-btn {
+      width: 100%;
+      background: var(--crimson);
+      border: 1px solid var(--crimson-mid);
+      color: var(--text-primary);
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-review-btn:hover {
+      background: var(--crimson-mid);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><span>Raajanna</span> Military Hotel</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+
+      <!-- MENU DROPDOWN -->
+      <li class="nav-dropdown">
+        <a href="menu.html" class="dropdown-trigger">Menu <span class="chevron"></span></a>
+        <div class="dropdown-panel">
+          <span class="dropdown-label">Browse by Category</span>
+          <a href="menu.html#rice"><span class="dp-icon">🍚</span> Rice & Meals</a>
+          <a href="menu.html#biryani"><span class="dp-icon">🫕</span> Biryani</a>
+          <a href="menu.html#curries"><span class="dp-icon">🍛</span> Curries</a>
+          <a href="menu.html#fry"><span class="dp-icon">🍗</span> Fry Items</a>
+          <a href="menu.html#starters"><span class="dp-icon">🥘</span> Starters</a>
+          <div class="dropdown-divider"></div>
+          <a href="menu.html"><span class="dp-icon">📋</span> Full Menu</a>
+        </div>
+      </li>
+
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge animate"><span>✦ Est. 2025</span></div>
+      <h1 class="hero-title animate delay-1">This isn't just<br>a restaurant.<br><em>It's an experience.</em></h1>
+      <p class="hero-sub animate delay-2">Authentic Andhra Military Cuisine with hand-ground spices straight from our
+        kitchens to your heart.</p>
+      <div class="hero-actions animate delay-3">
+        <a href="menu.html" class="btn-primary">View Menu</a>
+        <a href="contact.html" class="btn-outline">Book Table</a>
+      </div>
+      <div class="animate delay-3" style="margin-top:20px;">
+        <a href="https://www.google.com/maps/place/Raajanna+Militaryhotel/@17.009926,81.7719323,2669m/data=!3m1!1e3!4m12!1m2!2m1!1srajanna+military+hotel+rajahmundry!3m8!1s0x3a37a38e8cf699cd:0x1317229522a5a162!8m2!3d17.009926!4d81.7899567!9m1!1b1!15sCiJyYWphbm5hIG1pbGl0YXJ5IGhvdGVsIHJhamFobXVuZHJ5WiQiInJhamFubmEgbWlsaXRhcnkgaG90ZWwgcmFqYWhtdW5kcnmSAQpyZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJwR05HSnJVbE5PTW1oS1pGTXhTbFpJVWxSaFIyUjBaRVYwVFZsVlJSQULgAQD6AQQIABBE!16s%2Fg%2F11ynvl5htd?entry=ttu"
+          target="_blank" class="google-review-btn">⭐ Review us on Google Maps →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SHORT ABOUT SECTION -->
+  <section class="section-padding">
+    <div class="home-about-grid">
+      <div class="about-img-container">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant Ambiance">
+      </div>
+      <div>
+        <div class="section-header" style="text-align: left;">
+          <span class="section-tag">Our Legacy</span>
+          <h2 class="section-title">Where Tradition Meets <em>Passion</em></h2>
+          <div class="section-line" style="margin: 20px 0 0 0;"></div>
+        </div>
+        <p class="about-text">Founded in 2025 in Rajahmundry. We specialize in Andhra military hotel style cooking -
+          bringing you the spicy, hearty meals you crave. Every dish is a tribute to family recipes and slow-cooked
+          perfection.</p>
+        <a href="about-us.html" class="btn-primary" style="margin-top: 20px;">Read Our Full Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS / TESTIMONIALS SECTION -->
+  <section class="reviews-section" id="reviews-section">
+    <div class="section-header">
+      <span class="section-tag">What Our Guests Say</span>
+      <h2 class="section-title">Our <em>Reviews</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="reviews-grid" id="homepage-reviews">
+      <div class="reviews-empty">No reviews yet. Be the first to share your experience!</div>
+    </div>
+    <div id="show-more-wrap" style="text-align:center;margin-top:20px;display:none;">
+      <button id="show-all-reviews-btn" onclick="showAllReviews()"
+        style="background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:10px 28px;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.9rem;transition:all 0.3s;">Show
+        All Reviews ↓</button>
+    </div>
+
+    <!-- WRITE A REVIEW FORM -->
+    <div class="write-review-section">
+      <h3
+        style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px; text-align: center;">
+        Write a Review</h3>
+      <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:20px; text-align: center;">Share your
+        experience! Approved reviews will appear here.</p>
+
+      <input type="text" class="review-phone-input" id="review-name" placeholder="Your Name">
+      <select class="review-select" id="review-item">
+        <option value="General Experience">General Experience</option>
+      </select>
+
+      <div class="star-row" id="star-row">
+        <button class="star-btn" data-val="1" onclick="setRating(1)">⭐</button>
+        <button class="star-btn" data-val="2" onclick="setRating(2)">⭐</button>
+        <button class="star-btn" data-val="3" onclick="setRating(3)">⭐</button>
+        <button class="star-btn" data-val="4" onclick="setRating(4)">⭐</button>
+        <button class="star-btn" data-val="5" onclick="setRating(5)">⭐</button>
+      </div>
+
+      <textarea class="review-input" id="review-comment" rows="3" placeholder="Tell us what you loved..."></textarea>
+      <button class="submit-review-btn" onclick="submitGeneralReview()">Submit Review →</button>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo"><span>Raajanna</span> Military Hotel</a>
+        <p class="footer-desc">"This isn't just a restaurant. It's an experience." Come hungry, leave with memories.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="menu.html">Full Menu</a></li>
+          <li><a href="menu.html#special">Special Menu âœ¨</a></li>
+          <li><a href="gallery.html">Visual Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Admin Login</a></li>
+
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Opening Hours</div>
+        <ul class="footer-links" style="font-size: 0.9rem;">
+          <li style="margin-bottom: 8px;">Everyday</li>
+          <li style="color: var(--text-secondary);">11:30 AM – 3:30 PM</li>
+          <li style="color: var(--text-secondary);">6:30 PM – 11:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Visit Us</div>
+        <ul class="footer-links" style="font-size: 0.9rem; line-height: 1.5;">
+          <li>TTD Rd, Rajendra Nagar, Nehru nagar,</li>
+          <li>Rajamahendravaram, AP 533103</li>
+          <li style="margin-top: 12px; color: var(--crimson-light);">+91 95426 69669</li>
+        </ul>
+        <div style="margin-top: 20px;">
+          <div class="footer-heading" style="font-size: 0.95rem; margin-bottom: 8px;">Follow Us</div>
+          <div style="display:flex; gap:12px; font-size:1.4rem;">
+            <a href="https://www.facebook.com" target="_blank"
+              style="color:var(--text-primary);text-decoration:none;transition:color 0.3s;"
+              onmouseover="this.style.color='var(--crimson-light)'" onmouseout="this.style.color='var(--text-primary)'"
+              title="Facebook">📘</a>
+            <a href="https://www.instagram.com/raajanna_military_hotel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank" style="color:var(--text-primary);text-decoration:none;transition:color 0.3s;"
+              onmouseover="this.style.color='var(--crimson-light)'" onmouseout="this.style.color='var(--text-primary)'"
+              title="Instagram">📸</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Raajanna Military Hotel. Crafted for the love of true Andhra flavors.
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // Track website visit
+    RJH.incrementWebsiteVisit();
+
+    // Load approved reviews on homepage
+    let allReviewsList = [];
+    async function loadHomepageReviews() {
+      allReviewsList = await RJH.getApprovedReviews();
+      const container = document.getElementById('homepage-reviews');
+      if (allReviewsList.length === 0) {
+        container.innerHTML = '<div class="reviews-empty">No reviews yet. Be the first to share your experience!</div>';
+        document.getElementById('show-more-wrap').style.display = 'none';
+        return;
+      }
+      renderReviewCards(allReviewsList.slice(0, 6));
+      if (allReviewsList.length > 6) {
+        document.getElementById('show-more-wrap').style.display = 'block';
+      }
+    }
+
+    function renderReviewCards(reviews) {
+      const container = document.getElementById('homepage-reviews');
+      container.innerHTML = reviews.map(r => `
+        <div class="review-card animate">
+          <div class="review-card-stars">${'⭐'.repeat(r.rating)}</div>
+          <p class="review-card-text">${r.comment}</p>
+          <div class="review-card-author">
+            <div class="review-card-avatar">${(r.customerName || 'G').charAt(0).toUpperCase()}</div>
+            <div>
+              <div class="review-card-name">${r.customerName}</div>
+              <div class="review-card-dish">Tried: ${r.itemName}</div>
+            </div>
+          </div>
+        </div>`).join('');
+    }
+
+    function showAllReviews() {
+      renderReviewCards(allReviewsList);
+      document.getElementById('show-more-wrap').style.display = 'none';
+    }
+
+    // Review form logic
+    let selectedRating = 0;
+    function setRating(val) {
+      selectedRating = val;
+      document.querySelectorAll('#star-row .star-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.val) <= val);
+      });
+    }
+
+    async function submitGeneralReview() {
+      const name = document.getElementById('review-name').value.trim();
+      const comment = document.getElementById('review-comment').value.trim();
+      const itemName = document.getElementById('review-item').value;
+
+      if (!name) { RJH.showToast('⚠️ Please enter your name', 'error'); return; }
+      if (!selectedRating) { RJH.showToast('⚠️ Please select a star rating', 'error'); return; }
+      if (!comment) { RJH.showToast('⚠️ Please write a comment', 'error'); return; }
+
+      RJH.showToast('⏳ Submitting your review...', 'info', 2000);
+
+      const fakeId = 'anon_' + Date.now().toString();
+
+      await RJH.registerCustomer(fakeId, name);
+
+      await RJH.addReview({
+        customerId: fakeId,
+        customerName: name,
+        itemName: itemName,
+        rating: selectedRating,
+        comment: comment
+      });
+
+      RJH.showToast('✅ Thank you! Your review has been submitted. It will appear here once approved by our team.', 'success', 5000);
+
+      document.getElementById('review-name').value = '';
+      document.getElementById('review-comment').value = '';
+      setRating(0);
+    }
+
+    // Populate dropdowns from menu (async)
+    async function initPage() {
+      const menuItems = await RJH.getMenu();
+      let opts = '<option value="General Experience">General Experience</option>';
+      const categories = [...new Set(menuItems.map(i => i.category))];
+      categories.forEach(cat => {
+        const items = menuItems.filter(i => i.category === cat);
+        opts += `<optgroup label="${cat}">${items.map(i => `<option value="${i.name}">${i.name}</option>`).join('')}</optgroup>`;
+      });
+      document.getElementById('review-item').innerHTML = opts;
+
+      await loadHomepageReviews();
+    }
+
+    initPage();
+  </script>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/gold-dust.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Raajanna Military Hotel</title>
+  <meta name="description"
+    content="Login to your Raajanna Military Hotel account. Track your visits, view offers, and more.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-base);
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(155, 0, 0, 0.18) 0%, transparent 65%),
+        radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .login-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 56px 48px;
+      width: 100%;
+      max-width: 440px;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .login-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .login-logo span {
+      color: var(--crimson-light);
+    }
+
+    .login-tagline {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 36px;
+      letter-spacing: 1px;
+    }
+
+    .login-step {
+      display: none;
+    }
+
+    .login-step.active {
+      display: block;
+    }
+
+    .login-step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .login-step-sub {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .login-input-group {
+      margin-bottom: 20px;
+    }
+
+    .login-input-group label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .login-input-group input {
+      width: 100%;
+      padding: 15px 16px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .login-input-group input:focus {
+      border-color: var(--crimson-mid);
+      box-shadow: 0 0 0 3px rgba(155, 0, 0, 0.15);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--crimson);
+      border: 1px solid var(--crimson-mid);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+
+    .login-btn:hover {
+      background: var(--crimson-mid);
+      box-shadow: 0 8px 24px rgba(155, 0, 0, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .login-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .otp-boxes {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .otp-box {
+      flex: 1;
+      height: 56px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .otp-box:focus {
+      border-color: var(--crimson-mid);
+      box-shadow: 0 0 0 3px rgba(155, 0, 0, 0.15);
+    }
+
+    .otp-phone-display {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 16px;
+      color: var(--gold-accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: var(--text-primary);
+    }
+
+    .login-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .login-divider::before,
+    .login-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .login-divider span {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .admin-link {
+      display: block;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .admin-link:hover {
+      color: var(--gold-accent);
+    }
+
+    .otp-demo-notice {
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid var(--border-gold);
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      color: var(--gold-accent);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .resend-link {
+      color: var(--crimson-light);
+      cursor: pointer;
+      font-size: 0.85rem;
+      text-decoration: underline;
+      display: inline-block;
+      margin-top: 12px;
+    }
+  </style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c9a84c">
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo"><span>Raajanna</span> Military Hotel</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+
+      <!-- MENU DROPDOWN -->
+      <li class="nav-dropdown">
+        <a href="menu.html" class="dropdown-trigger">Menu <span class="chevron"></span></a>
+        <div class="dropdown-panel">
+          <span class="dropdown-label">Browse by Category</span>
+          <a href="menu.html#rice"><span class="dp-icon">🍚</span> Rice & Meals</a>
+          <a href="menu.html#biryani"><span class="dp-icon">🫕</span> Biryani</a>
+          <a href="menu.html#curries"><span class="dp-icon">🍛</span> Curries</a>
+          <a href="menu.html#fry"><span class="dp-icon">🍗</span> Fry Items</a>
+          <a href="menu.html#starters"><span class="dp-icon">🥘</span> Starters</a>
+          <div class="dropdown-divider"></div>
+          <a href="menu.html"><span class="dp-icon">📋</span> Full Menu</a>
+        </div>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <main class="login-page">
+    <div class="login-card animate">
+      <a href="index.html" class="login-logo"><span>Raajanna</span> Military Hotel</a>
+      <p class="login-tagline">✦ Member Portal ✦</p>
+
+      <!-- Step 1: Phone Input -->
+      <div class="login-step active" id="step1">
+        <h1 class="login-step-title">Welcome Back 🔐</h1>
+        <p class="login-step-sub">Enter your mobile number to receive a one-time password.</p>
+        <div class="login-input-group">
+          <label for="phone-input">Mobile Number</label>
+          <input type="tel" id="phone-input" placeholder="+91 98765 43210" maxlength="15" autocomplete="tel">
+        </div>
+        <div class="login-input-group">
+          <label for="name-input">Your Name <span style="color:var(--text-muted);font-size:0.75rem;">(new
+              members)</span></label>
+      <!-- Admin Login -->
+      <div class="login-step active" id="step-admin">
+        <h2 class="login-step-title">Admin Login ⚙️</h2>
+        <p class="login-step-sub">Enter admin credentials to access the management panel.</p>
+        <div class="login-input-group">
+          <label for="admin-phone">Admin Phone / ID</label>
+          <input type="text" id="admin-phone" placeholder="Admin identifier" value="admin">
+        </div>
+        <div class="login-input-group">
+          <label for="admin-pass">Password</label>
+          <input type="password" id="admin-pass" placeholder="Admin password">
+        </div>
+        <button class="login-btn" onclick="adminLogin()">Login as Admin →</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    async function adminLogin() {
+      const pass = document.getElementById('admin-pass').value;
+      const btn = document.querySelector('.login-btn');
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+
+      const success = await RJH.checkAdminPass(pass);
+      if (success) {
+        RJH.setSession({ loggedIn: true, phone: 'admin', name: 'Admin', isAdmin: true });
+        RJH.showToast('✅ Admin login successful!', 'success');
+        setTimeout(() => window.location.href = 'admin.html', 1000);
+      } else {
+        RJH.showToast('❌ Incorrect admin password', 'error');
+        btn.disabled = false;
+        btn.textContent = 'LOGIN AS ADMIN →';
+      }
+    }
+
+    // Enter key shortcuts
+    document.getElementById('admin-pass').addEventListener('keydown', e => { if (e.key === 'Enter') adminLogin(); });
+  </script>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/gold-dust.js"></script>
+</body>
+
+</html>

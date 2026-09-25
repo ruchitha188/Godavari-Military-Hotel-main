@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Raajanna Military Hotel</title>
+  <meta name="description"
+    content="Reach out to Raajanna Military Hotel. Location: Rajahmundry, AP. Every meal is an experience.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c9a84c">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><span>Raajanna</span> Military Hotel</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+
+      <!-- MENU DROPDOWN -->
+      <li class="nav-dropdown">
+        <a href="menu.html" class="dropdown-trigger">Menu <span class="chevron"></span></a>
+        <div class="dropdown-panel">
+          <span class="dropdown-label">Browse by Category</span>
+          <a href="menu.html#rice"><span class="dp-icon">🍚</span> Rice & Meals</a>
+          <a href="menu.html#biryani"><span class="dp-icon">🫕</span> Biryani</a>
+          <a href="menu.html#curries"><span class="dp-icon">🍛</span> Curries</a>
+          <a href="menu.html#fry"><span class="dp-icon">🍗</span> Fry Items</a>
+          <a href="menu.html#starters"><span class="dp-icon">🥘</span> Starters</a>
+          <div class="dropdown-divider"></div>
+          <a href="menu.html"><span class="dp-icon">📋</span> Full Menu</a>
+        </div>
+      </li>
+
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- CONTACT PAGE -->
+  <section class="contact-page">
+    <div class="contact-grid">
+
+      <!-- Contact Details -->
+      <div class="contact-info animate">
+        <div class="section-header">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Visit Us <em>Today</em></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-text">TTD Rd, Rajendra Nagar, Nehru nagar,<br>Rajamahendravaram, AP 533103</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label">Phone</div>
+            <div class="info-text">+91 95426 69669</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-text">raajannamilitaryhotel@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label">Working Hours</div>
+            <div class="info-text">Everyday<br>11:30 AM – 3:30 PM &amp; 6:30 PM – 11:00 PM</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px; display: flex; gap: 16px;">
+          <a href="https://www.google.com/maps/place/Raajanna+Militaryhotel/@17.0099311,81.7873818,667m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a37a38e8cf699cd:0x1317229522a5a162!8m2!3d17.009926!4d81.7899567!16s%2Fg%2F11ynvl5htd?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank" class="btn-primary" style="font-size: 0.85rem;">⭐ Review on Google</a>
+          <a href="tel:+919542669669" class="btn-outline"
+            style="color: var(--spice-red); border-color: var(--spice-red); font-size: 0.85rem;">📞Call Now</a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper animate delay-1">
+        <h3
+          style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--brown-dark); margin-bottom: 24px;">
+          Send a Message</h3>
+        <form action="https://formspree.io/f/xojywyzq" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" maxlength="15">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required placeholder="Table Reservation">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required
+              placeholder="Hello, I would like to reserve..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 12px; justify-content: center;">Send
+            Message</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Map -->
+    <div class="map-container animate delay-2">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30672.77867887395!2d81.76879785!3d17.0049757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a3e35fe8f785%3A0x8fa563ba1c7f8b47!2sRajahmundry%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1712000000000!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo"><span>Raajanna</span> Military Hotel</a>
+        <p class="footer-desc">"This isn't just a restaurant. It's an experience." Come hungry, leave with memories.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="menu.html">Full Menu</a></li>
+          <li><a href="menu.html#special">Special Menu âœ¨</a></li>
+          <li><a href="gallery.html">Visual Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Opening Hours</div>
+        <ul class="footer-links" style="color: rgba(245, 232, 199, 0.7); font-size: 0.9rem;">
+          <li style="margin-bottom: 8px;">Everyday</li>
+          <li style="color: var(--gold-light);">11:30 AM – 3:30 PM</li>
+          <li style="color: var(--gold-light);">6:30 PM – 11:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Visit Us</div>
+        <ul class="footer-links" style="color: rgba(245, 232, 199, 0.7); font-size: 0.9rem; line-height: 1.5;">
+          <li>TTD Rd, Rajendra Nagar, Nehru nagar,</li>
+          <li>Rajamahendravaram, AP 533103</li>
+          <li style="margin-top: 12px; color: var(--spice-red);">+91 95426 69669</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Raajanna Military Hotel. Crafted for the love of true Andhra flavors.
+    </div>
+  </footer>
+
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/gold-dust.js"></script>
+</body>
+
+</html>

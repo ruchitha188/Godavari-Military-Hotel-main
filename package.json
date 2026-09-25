@@ -1,0 +1,9 @@
+{
+  "name": "raajanna-military-hotel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Raajanna Military Hotel Website with Vercel API backend",
+  "dependencies": {
+    "@vercel/kv": "^3.0.0"
+  }
+}

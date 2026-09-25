@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Raajanna Military Hotel</title>
+  <meta name="description" content="A visual feast of our signature dishes and modern ambience at Raajanna Military Hotel, Rajahmundry.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c9a84c">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><span>Raajanna</span> Military Hotel</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+
+      <!-- MENU DROPDOWN -->
+      <li class="nav-dropdown">
+        <a href="menu.html" class="dropdown-trigger">Menu <span class="chevron"></span></a>
+        <div class="dropdown-panel">
+          <span class="dropdown-label">Browse by Category</span>
+          <a href="menu.html#rice"><span class="dp-icon">🍚</span> Rice & Meals</a>
+          <a href="menu.html#biryani"><span class="dp-icon">🫕</span> Biryani</a>
+          <a href="menu.html#curries"><span class="dp-icon">🍛</span> Curries</a>
+          <a href="menu.html#fry"><span class="dp-icon">🍗</span> Fry Items</a>
+          <a href="menu.html#starters"><span class="dp-icon">🥘</span> Starters</a>
+          <div class="dropdown-divider"></div>
+          <a href="menu.html"><span class="dp-icon">📋</span> Full Menu</a>
+        </div>
+      </li>
+
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-page">
+    <div class="section-header">
+      <span class="section-tag">Visual Feast</span>
+      <h2 class="section-title">A Glimpse of Our <em>World</em></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Responsive 3-column photo grid -->
+    <div class="gallery-grid animate delay-1" id="dyn-gallery-grid">
+      <!-- Injected via JS -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo"><span>Raajanna</span> Military Hotel</a>
+        <p class="footer-desc">"This isn't just a restaurant. It's an experience." Come hungry, leave with memories.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="about-us.html">Our Story</a></li>
+          <li><a href="menu.html">Full Menu</a></li>
+          <li><a href="menu.html#special">Special Menu âœ¨</a></li>
+          <li><a href="gallery.html">Visual Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Opening Hours</div>
+        <ul class="footer-links" style="color: rgba(245, 232, 199, 0.7); font-size: 0.9rem;">
+          <li style="margin-bottom: 8px;">Everyday</li>
+          <li style="color: var(--gold-light);">11:30 AM – 3:30 PM</li>
+          <li style="color: var(--gold-light);">6:30 PM – 11:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Visit Us</div>
+        <ul class="footer-links" style="color: rgba(245, 232, 199, 0.7); font-size: 0.9rem; line-height: 1.5;">
+          <li>TTD Rd, Rajendra Nagar, Nehru nagar,</li>
+          <li>Rajamahendravaram, AP 533103</li>
+          <li style="margin-top: 12px; color: var(--spice-red);">+91 95426 69669</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Raajanna Military Hotel. Crafted for the love of true Andhra flavors.
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/gold-dust.js"></script>
+  <script>
+    async function loadGallery() {
+      const items = await RJH.getGallery();
+      const grid = document.getElementById('dyn-gallery-grid');
+      if (items.length === 0) {
+        grid.innerHTML = '<p style="color:var(--text-muted); grid-column:1/-1; text-align:center;">No photos uploaded yet.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(img => `
+        <div class="gallery-item" ${img.colSpan ? 'style="grid-column: span 2;"' : ''}>
+          <img src="${img.url}" alt="${img.caption}">
+          <div class="gallery-overlay"><span>${img.caption}</span></div>
+        </div>
+      `).join('');
+    }
+    loadGallery();
+  </script>
+</body>
+</html>
