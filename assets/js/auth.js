@@ -5,9 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLogout();
   highlightActiveNav();
 
-  // Guard: redirect from admin if not logged in
-  if (location.pathname.includes('admin.html') && (!RJH.isLoggedIn() || !RJH.isAdmin())) {
-    window.location.href = 'login.html';
+  // Portfolio Demo Mode: Ensure visitors and clients can explore the admin panel without hurdles
+  if (location.pathname.includes('admin.html')) {
+    if (!RJH.isLoggedIn() || !RJH.isAdmin()) {
+      RJH.loginDemoAdmin();
+      RJH.updateNav();
+    }
   }
 });
 

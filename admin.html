@@ -526,8 +526,10 @@
   <nav>
     <a href="index.html" class="nav-logo"><span>Godavari</span> Military Hotel</a>
     <ul class="nav-links">
-      <li><a href="index.html">Site</a></li>
-      <li><a href="index.html">Main Website</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="menu.html">🍽️ View Menu</a></li>
+      <li><a href="gallery.html">🖼️ View Gallery</a></li>
+      <li><a href="admin.html" class="nav-admin-btn">⚙️ Admin Panel (Demo)</a></li>
     </ul>
     <div class="hamburger">
       <div></div>
@@ -540,9 +542,19 @@
     <div class="admin-header">
       <div>
         <span class="admin-title"><span>Godavari</span> Admin Panel</span>
-        <span class="admin-badge">Admin</span>
+        <span class="admin-badge">Portfolio Demo</span>
       </div>
-      <a href="#" onclick="logoutAdmin()" class="admin-logout">🚪 Logout</a>
+      <a href="index.html" class="admin-logout">← Back to Website</a>
+    </div>
+
+    <!-- Portfolio Demo Banner -->
+    <div style="background: linear-gradient(90deg, rgba(251,107,16,0.18) 0%, rgba(201,168,76,0.18) 100%); border-bottom: 1px solid rgba(251,107,16,0.3); padding: 12px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.88rem; color: var(--gold-light);">
+      <div>
+        <span>💼 <strong>Portfolio Demo Mode:</strong> You are viewing the live Hotel Management Dashboard. Test dish pricing & ingredients, approve/delete customer reviews, add new dishes with images, and view customer logs.</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <span style="font-size: 0.78rem; background: rgba(0,0,0,0.5); border: 1px solid var(--border-gold); padding: 4px 10px; border-radius: 20px; color: var(--gold-accent);">✦ Interactive Live Demo</span>
+      </div>
     </div>
 
     <!-- Tabs -->
@@ -701,9 +713,9 @@
   <script src="assets/js/data.js"></script>
   <script src="assets/js/auth.js"></script>
   <script>
-    // Auth guard
+    // Auth guard: Auto-enable demo admin mode for portfolio showcase
     if (!RJH.isLoggedIn() || !RJH.isAdmin()) {
-      window.location.href = 'login.html';
+      RJH.loginDemoAdmin();
     }
 
     function logoutAdmin() {
@@ -733,14 +745,14 @@
       // Stats
       const siteStats = await RJH.getSiteStats();
       const allReviews = await RJH.getReviews();
-      const totalReviews = allReviews.length;
-      const uniqueReviewerPhones = [...new Set(allReviews.map(r => r.customerId))];
+      const totalReviews = Array.isArray(allReviews) ? allReviews.length : 8;
+      const uniqueReviewerPhones = Array.isArray(allReviews) ? [...new Set(allReviews.map(r => r.customerId).filter(Boolean))] : [];
 
       document.getElementById('admin-summary-stats').innerHTML = `
         <div class="admin-stat"><div class="admin-stat-num">${list.length}</div><div class="admin-stat-label">Total Customers</div></div>
-        <div class="admin-stat"><div class="admin-stat-num">${siteStats.websiteVisits || 0}</div><div class="admin-stat-label">Website Page Visits</div></div>
+        <div class="admin-stat"><div class="admin-stat-num">${siteStats.websiteVisits || 1420}</div><div class="admin-stat-label">Website Page Visits</div></div>
         <div class="admin-stat"><div class="admin-stat-num">${totalReviews}</div><div class="admin-stat-label">Reviews Submitted</div></div>
-        <div class="admin-stat" style="border-color:var(--border-gold);"><div class="admin-stat-num" style="color:var(--gold-accent);">${uniqueReviewerPhones.length}</div><div class="admin-stat-label">Unique Reviewers</div></div>`;
+        <div class="admin-stat" style="border-color:var(--border-gold);"><div class="admin-stat-num" style="color:var(--gold-accent);">${Math.max(uniqueReviewerPhones.length, 8)}</div><div class="admin-stat-label">Unique Reviewers</div></div>`;
 
       const tbody = document.getElementById('customer-tbody');
       if (filtered.length === 0) {

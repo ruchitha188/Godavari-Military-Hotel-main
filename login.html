@@ -297,6 +297,7 @@
       </li>
 
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="admin.html" class="nav-admin-btn">⚙️ Admin Demo</a></li>
     </ul>
     <div class="hamburger">
       <div></div>
@@ -310,17 +311,29 @@
       <a href="index.html" class="login-logo"><span>Godavari</span> Military Hotel</a>
       <p class="login-tagline">✦ Admin Portal ✦</p>
 
+      <!-- Instant Portfolio Demo Login Button -->
+      <div style="margin-bottom: 24px;">
+        <button type="button" class="login-btn" onclick="instantDemoLogin()" style="background: linear-gradient(135deg, var(--gold-accent) 0%, var(--crimson-light) 100%); color: #000; font-weight: 800; border: none; box-shadow: 0 4px 20px rgba(251,107,16,0.35);">
+          ⚡ Instant 1-Click Demo Access →
+        </button>
+        <p style="font-size: 0.8rem; color: var(--gold-light); text-align: center; margin-top: 8px;">
+          (For recruiters & clients viewing portfolio)
+        </p>
+      </div>
+
+      <div class="login-divider"><span>OR ENTER CREDENTIALS</span></div>
+
       <!-- Admin Login -->
       <div class="login-step active" id="step-admin">
         <h2 class="login-step-title">Admin Login ⚙️</h2>
-        <p class="login-step-sub">Enter admin credentials to access the management panel.</p>
+        <p class="login-step-sub">Enter credentials or use demo password <code>admin123</code>.</p>
         <div class="login-input-group">
           <label for="admin-phone">Admin Phone / ID</label>
           <input type="text" id="admin-phone" placeholder="Admin identifier" value="admin">
         </div>
         <div class="login-input-group">
           <label for="admin-pass">Password</label>
-          <input type="password" id="admin-pass" placeholder="Admin password">
+          <input type="password" id="admin-pass" placeholder="Enter 'admin123' or password" value="admin123">
         </div>
         <button class="login-btn" onclick="adminLogin()">Login as Admin →</button>
       </div>
@@ -330,6 +343,12 @@
   <script src="assets/js/data.js"></script>
   <script src="assets/js/auth.js"></script>
   <script>
+    function instantDemoLogin() {
+      RJH.loginDemoAdmin();
+      RJH.showToast('✅ Logged in as Demo Admin!', 'success', 2000);
+      setTimeout(() => window.location.href = 'admin.html', 400);
+    }
+
     async function adminLogin() {
       const pass = document.getElementById('admin-pass').value;
       const btn = document.querySelector('.login-btn');
@@ -340,7 +359,7 @@
       if (success) {
         RJH.setSession({ loggedIn: true, phone: 'admin', name: 'Admin', isAdmin: true });
         RJH.showToast('✅ Admin login successful!', 'success');
-        setTimeout(() => window.location.href = 'admin.html', 1000);
+        setTimeout(() => window.location.href = 'admin.html', 800);
       } else {
         RJH.showToast('❌ Incorrect admin password', 'error');
         btn.disabled = false;

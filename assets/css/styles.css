@@ -156,6 +156,52 @@ nav {
   display: none !important;
 }
 
+/* Admin Demo Navigation Button */
+.nav-admin-btn {
+  background: linear-gradient(135deg, rgba(239, 66, 15, 0.28) 0%, rgba(251, 107, 16, 0.42) 100%) !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: 20px !important;
+  padding: 7px 16px !important;
+  color: var(--sunset-gold) !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: 0 2px 12px rgba(251, 107, 16, 0.25) !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+}
+
+.nav-admin-btn:hover {
+  background: linear-gradient(135deg, var(--crimson-mid) 0%, var(--sunset-orange) 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 18px rgba(251, 107, 16, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+.nav-admin-btn::after {
+  display: none !important;
+}
+
+/* Category pulse highlight on hash scroll */
+.category-highlight {
+  animation: catPulse 1.8s ease-out;
+}
+
+@keyframes catPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(251, 107, 16, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 35px 8px rgba(251, 107, 16, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 107, 16, 0);
+  }
+}
+
 .mobile-quick-links {
   display: none;
 }

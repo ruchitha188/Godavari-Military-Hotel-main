@@ -498,6 +498,7 @@
 
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="admin.html" class="nav-admin-btn">⚙️ Admin Demo</a></li>
     </ul>
     <div class="hamburger">
       <div></div>
@@ -556,10 +557,10 @@
         <ul class="footer-links">
           <li><a href="about-us.html">Our Story</a></li>
           <li><a href="menu.html">Full Menu</a></li>
-          <li><a href="menu.html#special">Special Menu âœ¨</a></li>
+          <li><a href="menu.html#special">Special Menu ✨</a></li>
           <li><a href="gallery.html">Visual Gallery</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="login.html">Admin Login</a></li>
+          <li><a href="admin.html">Admin Panel (Demo) ⚙️</a></li>
         </ul>
       </div>
       <div>
@@ -702,9 +703,10 @@
 
     // ── Compute dish ratings from approved reviews ──────────────────────────
     function getDishRatingsFromReviews(itemName) {
-      const dishReviews = cachedReviews.filter(r => r.itemName === itemName && r.rating);
+      if (!Array.isArray(cachedReviews)) return { avg: null, count: 0 };
+      const dishReviews = cachedReviews.filter(r => r && r.itemName === itemName && r.rating);
       if (dishReviews.length === 0) return { avg: null, count: 0 };
-      const sum = dishReviews.reduce((a, r) => a + r.rating, 0);
+      const sum = dishReviews.reduce((a, r) => a + Number(r.rating || 0), 0);
       return {
         avg: (sum / dishReviews.length).toFixed(1),
         count: dishReviews.length
@@ -713,6 +715,7 @@
 
     // ── Render Menu ──────────────────────────────────────────────────────────
     function renderMenu() {
+      if (!Array.isArray(cachedMenu)) cachedMenu = [];
       let items = [...cachedMenu];
       const content = document.getElementById('menu-content');
       content.innerHTML = '';
@@ -721,7 +724,7 @@
       if (currentDietFilter === 'special') {
         items = items.filter(i => i.isSpecial);
       } else if (currentDietFilter !== 'all') {
-        items = items.filter(i => i.diet === currentDietFilter);
+        items = items.filter(i => (i.diet || '').toLowerCase() === currentDietFilter.toLowerCase());
       }
       // Meat Filter
       if (currentDietFilter === 'Non-Veg' && currentMeatFilter !== 'all') {
@@ -729,7 +732,11 @@
       }
 
       if (items.length === 0) {
-        content.innerHTML = '<div style="text-align:center; padding: 60px 20px; color: var(--text-muted); font-size: 1.1rem; border: 1px dashed rgba(200,200,200,0.1); border-radius: 8px;">No items match your filter. Try changing your selection!</div>';
+        content.innerHTML = `
+          <div style="text-align:center; padding: 60px 20px; color: var(--text-muted); font-size: 1.1rem; border: 1px dashed rgba(200,200,200,0.1); border-radius: 8px;">
+            <p style="margin-bottom:16px;">No items match this filter.</p>
+            <button class="cat-tab active" onclick="filterDiet('all')" style="margin:0 auto; cursor:pointer;">🍽️ View All Items</button>
+          </div>`;
         return;
       }
 
@@ -755,6 +762,8 @@
 
         const group = document.createElement('div');
         group.className = 'menu-group animate';
+        const slug = cat.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        group.id = 'cat-' + slug;
         group.style.animationDelay = (ci * 0.08) + 's';
 
         const title = document.createElement('h2');
@@ -866,7 +875,7 @@
       document.getElementById('m-avg-count').textContent = count > 0 ? count + ' rating' + (count > 1 ? 's' : '') : 'Be the first to rate!';
 
       // Dish specific reviews
-      const dishReviews = cachedReviews.filter(r => r.itemName === item.name);
+      const dishReviews = Array.isArray(cachedReviews) ? cachedReviews.filter(r => r && r.itemName === item.name) : [];
       const revContainer = document.getElementById('m-dish-reviews-container');
       const revList = document.getElementById('m-dish-reviews-list');
 
@@ -876,9 +885,9 @@
           <div style="background:rgba(20,20,20,0.5); padding:10px; border-radius:4px;">
             <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
               <span style="color:var(--text-primary); font-size:0.85rem; font-weight:600;">${r.customerName || 'Guest'}</span>
-              <span style="font-size:0.75rem;">${'⭐'.repeat(r.rating)}</span>
+              <span style="font-size:0.75rem;">${'⭐'.repeat(r.rating || 5)}</span>
             </div>
-            <div style="color:var(--text-secondary); font-size:0.8rem;">${r.comment}</div>
+            <div style="color:var(--text-secondary); font-size:0.8rem;">${r.comment || ''}</div>
           </div>
         `).join('');
       } else {
@@ -945,6 +954,7 @@
 
       // Refresh reviews cache
       cachedReviews = await RJH.getApprovedReviews();
+      if (!Array.isArray(cachedReviews)) cachedReviews = [];
 
       // Refresh the modal's community rating live
       const { avg, count } = getDishRatingsFromReviews(item.name);
@@ -972,19 +982,104 @@
       if (e.key === 'Escape') closeDishModal(null, true);
     });
 
+    // ── Hash & Category Routing ──────────────────────────────────────────────
+    const DIET_HASHES = {
+      'all': 'all',
+      'special': 'special',
+      'veg': 'Veg',
+      'pureveg': 'Veg',
+      'pure-veg': 'Veg',
+      'eggitarian': 'Eggitarian',
+      'egg': 'Eggitarian',
+      'non-veg': 'Non-Veg',
+      'nonveg': 'Non-Veg'
+    };
+
+    const CATEGORY_HASH_MAP = {
+      'biryani': 'Biryanis',
+      'biryanis': 'Biryanis',
+      'curry': 'Curries',
+      'curries': 'Curries',
+      'starter': 'Starters',
+      'starters': 'Starters',
+      'fry': 'Starters',
+      'fry-items': 'Starters',
+      'rice': 'Rice Items',
+      'rice-items': 'Rice Items',
+      'meals': 'Thalis',
+      'thali': 'Thalis',
+      'thalis': 'Thalis',
+      'tandoori': 'Tandoori Breads',
+      'breads': 'Tandoori Breads',
+      'soups': 'Soups',
+      'soup': 'Soups',
+      'desserts': 'Desserts',
+      'dessert': 'Desserts',
+      'beverages': 'Beverages',
+      'beverage': 'Beverages'
+    };
+
+    function handleHash(rawHash) {
+      if (!rawHash) {
+        renderMenu();
+        return;
+      }
+      const hash = rawHash.replace(/^#/, '').trim().toLowerCase();
+      if (!hash) {
+        renderMenu();
+        return;
+      }
+
+      // Check if it's a diet filter
+      if (DIET_HASHES[hash]) {
+        filterDiet(DIET_HASHES[hash]);
+        return;
+      }
+
+      // Check if it's a category scroll target
+      if (CATEGORY_HASH_MAP[hash]) {
+        filterDiet('all');
+        const targetCategory = CATEGORY_HASH_MAP[hash];
+        const slug = targetCategory.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        setTimeout(() => {
+          const el = document.getElementById('cat-' + slug);
+          if (el) {
+            const yOffset = -90;
+            const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            el.style.transition = 'box-shadow 0.4s ease, border-radius 0.4s ease';
+            el.style.boxShadow = '0 0 30px rgba(251, 107, 16, 0.4)';
+            el.style.borderRadius = '8px';
+            setTimeout(() => {
+              el.style.boxShadow = '';
+            }, 2000);
+          }
+        }, 120);
+        return;
+      }
+
+      // Default
+      renderMenu();
+    }
+
     // ── Init (async) ─────────────────────────────────────────────────────────
     async function initMenu() {
-      // Load menu and reviews from API
+      // Load menu and reviews with full fallback resilience
       cachedMenu = await RJH.getMenu();
+      if (!Array.isArray(cachedMenu)) cachedMenu = [];
       cachedReviews = await RJH.getApprovedReviews();
+      if (!Array.isArray(cachedReviews)) cachedReviews = [];
 
       if (window.location.hash) {
-        const hash = window.location.hash.substring(1);
-        setTimeout(() => filterDiet(hash), 100);
+        handleHash(window.location.hash);
       } else {
         renderMenu();
       }
     }
+
+    window.addEventListener('hashchange', () => {
+      handleHash(window.location.hash);
+    });
 
     initMenu();
   </script>
