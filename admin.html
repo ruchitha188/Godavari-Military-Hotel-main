@@ -11,17 +11,21 @@
     .admin-page {
       min-height: 100vh;
       background:
-        linear-gradient(135deg, rgba(13, 0, 0, 0.88) 0%, rgba(32, 6, 2, 0.80) 45%, rgba(13, 0, 0, 0.92) 100%),
+        linear-gradient(160deg,
+          rgba(73, 21, 49, 0.88) 0%,
+          rgba(116, 47, 69, 0.82) 28%,
+          rgba(182, 35, 25, 0.75) 60%,
+          rgba(10, 3, 7, 0.94) 100%),
         url('assets/images/godavari-bridge.jpg') center/cover no-repeat fixed;
       padding: 72px 0 60px;
       position: relative;
     }
 
     .admin-header {
-      background: rgba(8, 0, 0, 0.85);
+      background: rgba(22, 6, 18, 0.86);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(239, 66, 15, 0.25);
       padding: 28px 48px;
       display: flex;
       align-items: center;
@@ -37,11 +41,14 @@
     }
 
     .admin-title span {
-      color: var(--crimson-light);
+      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--crimson-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
 
     .admin-badge {
-      background: var(--gold-accent);
+      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--crimson-light) 100%);
       color: #000;
       font-size: 0.7rem;
       font-weight: 700;
@@ -53,8 +60,8 @@
     }
 
     .admin-logout {
-      background: rgba(26, 0, 0, 0.6);
-      border: 1px solid var(--border);
+      background: rgba(43, 13, 33, 0.6);
+      border: 1px solid rgba(239, 66, 15, 0.3);
       color: var(--text-muted);
       padding: 9px 18px;
       border-radius: 4px;
@@ -71,15 +78,15 @@
     .admin-logout:hover {
       border-color: var(--crimson-mid);
       color: var(--text-primary);
-      background: rgba(192, 21, 42, 0.2);
+      background: rgba(239, 66, 15, 0.2);
     }
 
     /* Tabs */
     .admin-tabs {
-      background: rgba(18, 2, 2, 0.80);
+      background: rgba(30, 8, 24, 0.82);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(239, 66, 15, 0.25);
       padding: 0 48px;
       display: flex;
       gap: 4px;
@@ -105,7 +112,7 @@
 
     .admin-tab.active {
       color: var(--text-primary);
-      border-bottom-color: var(--crimson-mid);
+      border-bottom-color: var(--crimson-light);
     }
 
     /* Body */
@@ -132,10 +139,10 @@
     }
 
     .admin-stat {
-      background: rgba(22, 1, 1, 0.80);
+      background: rgba(36, 10, 28, 0.80);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(239, 66, 15, 0.25);
       border-radius: 8px;
       padding: 20px 24px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
@@ -144,8 +151,8 @@
 
     .admin-stat:hover {
       transform: translateY(-2px);
-      border-color: var(--crimson-mid);
-      box-shadow: 0 12px 28px rgba(155, 0, 0, 0.25);
+      border-color: var(--crimson-light);
+      box-shadow: 0 12px 28px rgba(239, 66, 15, 0.25);
     }
 
     .admin-stat-num {
@@ -164,10 +171,10 @@
 
     /* Tables */
     .admin-table-wrap {
-      background: rgba(20, 1, 1, 0.82);
+      background: rgba(26, 7, 21, 0.84);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(239, 66, 15, 0.22);
       border-radius: 8px;
       overflow-x: auto;
       margin-bottom: 32px;
@@ -181,7 +188,7 @@
     }
 
     .admin-table thead tr {
-      background: rgba(42, 3, 3, 0.85);
+      background: rgba(73, 21, 49, 0.75);
     }
 
     .admin-table th {
@@ -191,13 +198,13 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--gold-accent);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(239, 66, 15, 0.25);
       white-space: nowrap;
     }
 
     .admin-table td {
       padding: 14px 16px;
-      border-bottom: 1px solid rgba(155, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(116, 47, 69, 0.25);
       color: var(--text-secondary);
       vertical-align: middle;
     }
@@ -207,7 +214,7 @@
     }
 
     .admin-table tr:hover td {
-      background: rgba(155, 0, 0, 0.1);
+      background: rgba(239, 66, 15, 0.1);
     }
 
     .cell-name {
@@ -224,8 +231,8 @@
 
     /* Inline edit */
     .edit-input {
-      background: rgba(13, 0, 0, 0.7);
-      border: 1px solid var(--border);
+      background: rgba(10, 3, 7, 0.72);
+      border: 1px solid rgba(239, 66, 15, 0.28);
       border-radius: 4px;
       color: var(--text-primary);
       padding: 6px 8px;
@@ -237,8 +244,8 @@
     }
 
     .edit-input:focus {
-      border-color: var(--crimson-mid);
-      background: rgba(24, 2, 2, 0.95);
+      border-color: var(--crimson-light);
+      background: rgba(35, 9, 27, 0.95);
     }
 
     .edit-input.wide {
@@ -259,16 +266,16 @@
     }
 
     .btn-save {
-      background: var(--crimson);
+      background: linear-gradient(135deg, var(--crimson-mid) 0%, var(--crimson) 100%);
       color: #fff;
     }
 
     .btn-save:hover {
-      background: var(--crimson-mid);
+      background: linear-gradient(135deg, var(--crimson-light) 0%, var(--crimson-mid) 100%);
     }
 
     .btn-danger {
-      background: #2a0000;
+      background: rgba(73, 21, 49, 0.8);
       color: var(--crimson-light);
       border: 1px solid var(--crimson);
     }
@@ -279,22 +286,23 @@
     }
 
     .btn-approve {
-      background: rgba(34, 197, 94, 0.1);
+      background: rgba(34, 197, 94, 0.12);
       color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      border: 1px solid rgba(34, 197, 94, 0.35);
     }
 
     .btn-approve:hover {
-      background: rgba(34, 197, 94, 0.2);
+      background: rgba(34, 197, 94, 0.22);
     }
 
     .btn-gold {
-      background: var(--gold-accent);
+      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--crimson-light) 100%);
       color: #000;
     }
 
     .btn-gold:hover {
-      opacity: 0.85;
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .action-btns {
@@ -314,8 +322,8 @@
     .offer-input-row input {
       flex: 1;
       min-width: 180px;
-      background: rgba(13, 0, 0, 0.7);
-      border: 1px solid var(--border);
+      background: rgba(10, 3, 7, 0.72);
+      border: 1px solid rgba(239, 66, 15, 0.28);
       border-radius: 4px;
       color: var(--text-primary);
       padding: 6px 10px;
@@ -326,8 +334,8 @@
     }
 
     .offer-input-row input:focus {
-      border-color: var(--crimson-mid);
-      background: rgba(24, 2, 2, 0.95);
+      border-color: var(--crimson-light);
+      background: rgba(35, 9, 27, 0.95);
     }
 
     /* Section heading */
@@ -345,10 +353,10 @@
 
     /* Add menu item form */
     .add-form {
-      background: rgba(20, 1, 1, 0.82);
+      background: rgba(26, 7, 21, 0.84);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(239, 66, 15, 0.22);
       border-radius: 8px;
       padding: 28px;
       margin-bottom: 32px;
@@ -374,8 +382,8 @@
 
     .add-form-group input,
     .add-form-group select {
-      background: rgba(13, 0, 0, 0.7);
-      border: 1px solid var(--border);
+      background: rgba(10, 3, 7, 0.72);
+      border: 1px solid rgba(239, 66, 15, 0.28);
       border-radius: 4px;
       color: var(--text-primary);
       padding: 10px 12px;
@@ -387,17 +395,17 @@
 
     .add-form-group input:focus,
     .add-form-group select:focus {
-      border-color: var(--crimson-mid);
-      background: rgba(24, 2, 2, 0.95);
-      box-shadow: 0 0 0 2px rgba(155, 0, 0, 0.25);
+      border-color: var(--crimson-light);
+      background: rgba(35, 9, 27, 0.95);
+      box-shadow: 0 0 0 2px rgba(239, 66, 15, 0.25);
     }
 
     /* Review cards */
     .review-admin-card {
-      background: rgba(20, 1, 1, 0.82);
+      background: rgba(26, 7, 21, 0.84);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(239, 66, 15, 0.22);
       border-radius: 8px;
       padding: 20px 24px;
       margin-bottom: 16px;
@@ -431,7 +439,7 @@
     }
 
     .review-admin-stars {
-      color: #f59e0b;
+      color: var(--gold-accent);
       font-size: 1rem;
       margin-bottom: 4px;
     }
@@ -446,21 +454,21 @@
     }
 
     .badge-pending {
-      background: rgba(201, 168, 76, 0.1);
+      background: rgba(252, 170, 19, 0.12);
       color: var(--gold-accent);
       border: 1px solid var(--border-gold);
     }
 
     .badge-approved {
-      background: rgba(34, 197, 94, 0.1);
+      background: rgba(34, 197, 94, 0.12);
       color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      border: 1px solid rgba(34, 197, 94, 0.35);
     }
 
     /* Search bar */
     .search-bar {
-      background: rgba(13, 0, 0, 0.7);
-      border: 1px solid var(--border);
+      background: rgba(10, 3, 7, 0.72);
+      border: 1px solid rgba(239, 66, 15, 0.28);
       border-radius: 4px;
       color: var(--text-primary);
       padding: 10px 16px;
@@ -472,9 +480,9 @@
     }
 
     .search-bar:focus {
-      border-color: var(--crimson-mid);
-      background: rgba(24, 2, 2, 0.95);
-      box-shadow: 0 0 0 2px rgba(155, 0, 0, 0.25);
+      border-color: var(--crimson-light);
+      background: rgba(35, 9, 27, 0.95);
+      box-shadow: 0 0 0 2px rgba(239, 66, 15, 0.25);
     }
 
     @media(max-width: 900px) {
@@ -511,7 +519,7 @@
     }
   </style>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#c9a84c">
+  <meta name="theme-color" content="#fb6b10">
 </head>
 
 <body>

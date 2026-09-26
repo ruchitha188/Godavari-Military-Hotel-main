@@ -8,6 +8,8 @@
   <meta name="description"
     content="Godavari Military Hotel - Authentic spicy Andhra Military Cuisine in Rajahmundry. This isn't just a restaurant. It's an experience.">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#fb6b10">
   <style>
     /* Review form */
     .write-review-section {
@@ -68,21 +70,21 @@
     .review-select {
       cursor: pointer;
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a84c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fcaa13' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
     }
 
     .review-select option,
     .review-select optgroup {
-      background: #1a0000;
+      background: #1a0815;
       color: var(--text-primary);
     }
 
     .submit-review-btn {
       width: 100%;
-      background: var(--crimson);
-      border: 1px solid var(--crimson-mid);
+      background: linear-gradient(135deg, var(--crimson-mid) 0%, var(--crimson) 100%);
+      border: 1px solid rgba(252, 170, 19, 0.4);
       color: var(--text-primary);
       padding: 12px 28px;
       border-radius: 4px;
@@ -93,10 +95,12 @@
       transition: all 0.3s;
       text-transform: uppercase;
       letter-spacing: 1px;
+      box-shadow: 0 4px 16px rgba(239, 66, 15, 0.3);
     }
 
     .submit-review-btn:hover {
-      background: var(--crimson-mid);
+      background: linear-gradient(135deg, var(--crimson-light) 0%, var(--crimson-mid) 100%);
+      box-shadow: 0 6px 20px rgba(251, 107, 16, 0.45);
     }
   </style>
 </head>

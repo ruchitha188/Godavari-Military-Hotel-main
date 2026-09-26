@@ -4,8 +4,8 @@
   "description": "Authentic Andhra military hotel dining experience and ordering.",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#1a1a1a",
-  "theme_color": "#c9a84c",
+  "background_color": "#0a0307",
+  "theme_color": "#fb6b10",
   "icons": [
     {
       "src": "/assets/icons/app-icon-512.png",

@@ -53,9 +53,10 @@
     }
 
     .cat-tab.active {
-      background: var(--crimson);
-      border-color: var(--crimson-mid);
+      background: linear-gradient(135deg, var(--crimson-mid) 0%, var(--crimson) 100%);
+      border-color: rgba(252, 170, 19, 0.4);
       color: var(--text-primary);
+      box-shadow: 0 4px 14px rgba(239, 66, 15, 0.35);
     }
 
     /* ── Category Group ───────────────────────────────────────────────────── */
@@ -101,7 +102,7 @@
       left: 0;
       width: 3px;
       height: 100%;
-      background: var(--crimson);
+      background: linear-gradient(180deg, var(--gold-accent), var(--crimson-mid));
       transform: scaleY(0);
       transform-origin: top;
       transition: transform 0.25s;
@@ -113,8 +114,8 @@
 
     .dish-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-      border-color: rgba(155, 0, 0, 0.5);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 20px rgba(239, 66, 15, 0.15);
+      border-color: rgba(251, 107, 16, 0.5);
     }
 
     .dish-card-name {
@@ -443,7 +444,7 @@
     }
   </style>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#c9a84c">
+  <meta name="theme-color" content="#fb6b10">
 </head>
 
 <body>

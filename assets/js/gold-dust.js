@@ -37,25 +37,25 @@
     SPARKLE_CHANCE: 0.002,   // probability per particle per frame of sparkle burst
   };
 
-  /* ─── Gold colour palette ────────────────────────────────────────────────── */
-  const GOLD_HUES = [
-    [212, 175,  55],  // classic gold
-    [201, 168,  76],  // site gold accent
-    [255, 215,   0],  // bright gold
-    [184, 148,  68],  // antique gold
-    [240, 198, 116],  // pale champagne
-    [255, 223,  77],  // warm yellow gold
-    [210, 160,  40],  // dark gold
-    [255, 231, 150],  // light shimmer
+  /* ─── Godavari Sunset Dust colour palette ────────────────────────────────── */
+  const SUNSET_HUES = [
+    [252, 170,  19],  // glowing horizon amber-gold (#fcaa13)
+    [251, 107,  16],  // vibrant twilight orange (#fb6b10)
+    [239,  66,  15],  // fiery sunset red-orange (#ef420f)
+    [182,  35,  25],  // godavari crimson ember (#b62319)
+    [255, 215,  75],  // bright sunset gold shimmer
+    [255, 145,  45],  // warm sun flare orange
+    [116,  47,  69],  // dusk plum spark (#742f45)
+    [255, 235, 150],  // soft ambient light
   ];
 
   function randomGold() {
-    const g = GOLD_HUES[Math.floor(Math.random() * GOLD_HUES.length)];
+    const g = SUNSET_HUES[Math.floor(Math.random() * SUNSET_HUES.length)];
     // slightly randomise each channel ±12
     return [
-      Math.min(255, g[0] + (Math.random() - 0.5) * 24 | 0),
-      Math.min(255, g[1] + (Math.random() - 0.5) * 24 | 0),
-      Math.min(255, g[2] + (Math.random() - 0.5) * 24 | 0),
+      Math.min(255, Math.max(0, g[0] + (Math.random() - 0.5) * 20 | 0)),
+      Math.min(255, Math.max(0, g[1] + (Math.random() - 0.5) * 20 | 0)),
+      Math.min(255, Math.max(0, g[2] + (Math.random() - 0.5) * 20 | 0)),
     ];
   }
 
