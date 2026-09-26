@@ -10,11 +10,14 @@ async function verifyAdmin(req) {
 }
 
 const DEFAULT_GALLERY = [
-  { id: 'g1', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80', caption: 'Dining Experience', colSpan: false },
-  { id: 'g2', url: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80', caption: 'Signature Biryani', colSpan: true },
-  { id: 'g3', url: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80', caption: 'Spicy Starters', colSpan: false },
-  { id: 'g4', url: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80', caption: 'Tandoori Items', colSpan: false },
-  { id: 'g5', url: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80', caption: 'Rich Curries', colSpan: false },
+  { id: 'g1', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80', caption: 'Atmospheric Sunset Dining', colSpan: false },
+  { id: 'g2', url: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&q=80', caption: 'Natu Kodi & Signature Biryani', colSpan: true },
+  { id: 'g3', url: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=800&q=80', caption: 'Godavari Chapala Pulusu in Clay Pot', colSpan: false },
+  { id: 'g4', url: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80', caption: 'Sizzling Royyala Vepudu (Prawns Fry)', colSpan: false },
+  { id: 'g5', url: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=80', caption: 'Mutton Keema Sukka & Andhra Curries', colSpan: false },
+  { id: 'g6', url: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=800&q=80', caption: 'Royal Military Bhojanam (Thali)', colSpan: true },
+  { id: 'g7', url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80', caption: 'Double Ka Meetha with Saffron Rabri', colSpan: false },
+  { id: 'g8', url: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80', caption: 'Clay Oven Fresh Butter Garlic Naan', colSpan: false }
 ];
 
 async function getGallery() {

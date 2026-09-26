@@ -615,10 +615,14 @@
             <button class="btn-sm btn-gold" onclick="addMenuItem()">+ Add Item</button>
           </div>
         </div>
-        <div class="add-form" style="grid-template-columns: 1fr">
-          <div class="add-form-group" style="grid-column: 1/-1">
-            <label>Ingredients (for the item above)</label>
-            <input type="text" id="new-ingredients" placeholder="e.g. All-purpose flour, butter, garlic...">
+        <div class="add-form" style="grid-template-columns: 1fr 1fr;">
+          <div class="add-form-group">
+            <label>Ingredients (comma separated)</label>
+            <input type="text" id="new-ingredients" placeholder="e.g. Country chicken, seeraga samba rice, mint...">
+          </div>
+          <div class="add-form-group">
+            <label>Image URL</label>
+            <input type="text" id="new-image" placeholder="https://images.unsplash.com/...">
           </div>
         </div>
 
@@ -631,6 +635,7 @@
           <table class="admin-table">
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Category</th>
                 <th>Name</th>
                 <th>Special</th>
@@ -760,6 +765,7 @@
 
       document.getElementById('menu-tbody').innerHTML = filtered.map(item => `
         <tr>
+          <td><img src="${item.image || 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80'}" style="width:46px;height:46px;border-radius:4px;object-fit:cover;border:1px solid var(--border);"></td>
           <td style="font-size:0.85rem;color:var(--text-muted);">${item.category}</td>
           <td class="cell-name">${item.name}</td>
           <td><input type="checkbox" id="spec-${item.id}" ${item.isSpecial ? 'checked' : ''}></td>
@@ -779,16 +785,18 @@
       const name = document.getElementById('new-name').value.trim();
       const price = parseInt(document.getElementById('new-price').value) || 0;
       const ing = document.getElementById('new-ingredients').value.trim();
+      const image = document.getElementById('new-image').value.trim() || 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80';
       const isSpecial = document.getElementById('new-is-special').checked;
       if (!name) { RJH.showToast('Enter item name', 'error'); return; }
       if (!price) { RJH.showToast('Enter price', 'error'); return; }
 
       RJH.showToast('⏳ Adding item...', 'info', 2000);
-      await RJH.addMenuItem({ category: cat, name, price, ingredients: ing, isSpecial });
+      await RJH.addMenuItem({ category: cat, name, price, ingredients: ing, isSpecial, image });
       RJH.showToast('✅ Menu item added!', 'success');
       document.getElementById('new-name').value = '';
       document.getElementById('new-price').value = '';
       document.getElementById('new-ingredients').value = '';
+      document.getElementById('new-image').value = '';
       document.getElementById('new-is-special').checked = false;
       await renderMenu();
     }
