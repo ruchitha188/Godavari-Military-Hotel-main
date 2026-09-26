@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   try {
     const { password } = req.body;
-    const adminPass = process.env.ADMIN_PASSWORD || "Raajanna@2025";
+    const adminPass = process.env.ADMIN_PASSWORD || "Godavari@2025";
 
     if (password === adminPass) {
       const token = "rjh_" + Date.now().toString(36) + "_" + Math.random().toString(36).substr(2, 12);

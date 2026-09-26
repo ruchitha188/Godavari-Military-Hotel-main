@@ -1,4 +1,4 @@
-// ─── Raajanna Military Hotel — Central Data Layer (API-backed) ──────────────
+// ─── Godavari Military Hotel — Central Data Layer (API-backed) ──────────────
 const RJH = (() => {
   // API base — works locally with netlify dev and in production
   const API = '/api';

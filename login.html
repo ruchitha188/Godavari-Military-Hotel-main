@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Raajanna Military Hotel</title>
+  <title>Login | Godavari Military Hotel</title>
   <meta name="description"
-    content="Login to your Raajanna Military Hotel account. Track your visits, view offers, and more.">
+    content="Login to your Godavari Military Hotel account. Track your visits, view offers, and more.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
     .login-page {
@@ -14,8 +14,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg-base);
-      padding: 40px 20px;
+      background:
+        linear-gradient(135deg, rgba(13, 0, 0, 0.78) 0%, rgba(35, 8, 2, 0.65) 50%, rgba(13, 0, 0, 0.84) 100%),
+        url('assets/images/godavari-bridge.jpg') center/cover no-repeat fixed;
+      padding: 90px 20px 40px;
       position: relative;
       overflow: hidden;
     }
@@ -24,20 +26,22 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(155, 0, 0, 0.18) 0%, transparent 65%),
-        radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+      background: radial-gradient(ellipse at 30% 50%, rgba(155, 0, 0, 0.22) 0%, transparent 65%),
+        radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.12) 0%, transparent 50%);
       pointer-events: none;
     }
 
     .login-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      background: rgba(22, 1, 1, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 12px;
       padding: 56px 48px;
       width: 100%;
       max-width: 440px;
       position: relative;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(155, 0, 0, 0.2);
     }
 
     .login-logo {
@@ -102,19 +106,20 @@
     .login-input-group input {
       width: 100%;
       padding: 15px 16px;
-      background: var(--bg-elevated);
+      background: rgba(13, 0, 0, 0.7);
       border: 1px solid var(--border);
       border-radius: 4px;
       color: var(--text-primary);
       font-size: 1rem;
       font-family: 'DM Sans', sans-serif;
       outline: none;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
     }
 
     .login-input-group input:focus {
       border-color: var(--crimson-mid);
-      box-shadow: 0 0 0 3px rgba(155, 0, 0, 0.15);
+      background: rgba(22, 2, 2, 0.95);
+      box-shadow: 0 0 0 3px rgba(155, 0, 0, 0.2);
     }
 
     .login-btn {
@@ -158,22 +163,23 @@
       text-align: center;
       font-size: 1.4rem;
       font-weight: 700;
-      background: var(--bg-elevated);
+      background: rgba(13, 0, 0, 0.7);
       border: 1px solid var(--border);
       border-radius: 4px;
       color: var(--text-primary);
       font-family: 'DM Sans', sans-serif;
       outline: none;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
     }
 
     .otp-box:focus {
       border-color: var(--crimson-mid);
-      box-shadow: 0 0 0 3px rgba(155, 0, 0, 0.15);
+      background: rgba(22, 2, 2, 0.95);
+      box-shadow: 0 0 0 3px rgba(155, 0, 0, 0.2);
     }
 
     .otp-phone-display {
-      background: var(--bg-elevated);
+      background: rgba(13, 0, 0, 0.7);
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 12px 16px;
@@ -261,7 +267,7 @@
 
 <body>
   <nav>
-    <a href="index.html" class="nav-logo"><span>Raajanna</span> Military Hotel</a>
+    <a href="index.html" class="nav-logo"><span>Godavari</span> Military Hotel</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
 
@@ -291,20 +297,9 @@
 
   <main class="login-page">
     <div class="login-card animate">
-      <a href="index.html" class="login-logo"><span>Raajanna</span> Military Hotel</a>
-      <p class="login-tagline">✦ Member Portal ✦</p>
+      <a href="index.html" class="login-logo"><span>Godavari</span> Military Hotel</a>
+      <p class="login-tagline">✦ Admin Portal ✦</p>
 
-      <!-- Step 1: Phone Input -->
-      <div class="login-step active" id="step1">
-        <h1 class="login-step-title">Welcome Back 🔐</h1>
-        <p class="login-step-sub">Enter your mobile number to receive a one-time password.</p>
-        <div class="login-input-group">
-          <label for="phone-input">Mobile Number</label>
-          <input type="tel" id="phone-input" placeholder="+91 98765 43210" maxlength="15" autocomplete="tel">
-        </div>
-        <div class="login-input-group">
-          <label for="name-input">Your Name <span style="color:var(--text-muted);font-size:0.75rem;">(new
-              members)</span></label>
       <!-- Admin Login -->
       <div class="login-step active" id="step-admin">
         <h2 class="login-step-title">Admin Login ⚙️</h2>

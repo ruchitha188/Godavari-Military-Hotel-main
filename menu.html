@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu | Raajanna Military Hotel</title>
+  <title>Menu | Godavari Military Hotel</title>
   <meta name="description"
     content="Explore our authentic Andhra Military Hotel menu — Biryanis, Tandoori, Chicken 65, Mutton Fry and more. Click any dish to see descriptions, ingredients and ratings.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
     /* ── Page Layout ─────────────────────────────────────────────────────── */
-    .menu-page { padding: 110px 0 100px; background: transparent; min-height: 100vh; }
+    .menu-page {
+      padding: 110px 0 100px;
+      background: transparent;
+      min-height: 100vh;
+    }
 
     .menu-page-inner {
       max-width: 1280px;
@@ -423,12 +427,15 @@
       .dish-grid {
         grid-template-columns: 1fr;
       }
+
       .dish-card-name {
         font-size: 1rem;
       }
+
       .menu-group-title {
         font-size: 1.6rem;
       }
+
       .cat-tab {
         padding: 6px 14px;
         font-size: 0.75rem;
@@ -443,7 +450,7 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <a href="index.html" class="nav-logo"><span>Raajanna</span> Military Hotel</a>
+    <a href="index.html" class="nav-logo"><span>Godavari</span> Military Hotel</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about-us.html">About Us</a></li>
@@ -515,7 +522,7 @@
   <footer>
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="footer-logo"><span>Raajanna</span> Military Hotel</a>
+        <a href="index.html" class="footer-logo"><span>Godavari</span> Military Hotel</a>
         <p class="footer-desc">"This isn't just a restaurant. It's an experience." Come hungry, leave with memories.</p>
       </div>
       <div>
@@ -547,7 +554,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 Raajanna Military Hotel. Crafted for the love of true Andhra flavors.
+      &copy; 2025 Godavari Military Hotel. Crafted for the love of true Andhra flavors.
     </div>
   </footer>
 
@@ -583,7 +590,9 @@
       <!-- Customer Reviews -->
       <div id="m-dish-reviews-container" style="display:none; margin-top:20px;">
         <div class="modal-label">Customer Reviews</div>
-        <div id="m-dish-reviews-list" style="margin-bottom:16px; border-top:1px dashed var(--border); padding-top:12px; display:flex; flex-direction:column; gap:10px; max-height:200px; overflow-y:auto;"></div>
+        <div id="m-dish-reviews-list"
+          style="margin-bottom:16px; border-top:1px dashed var(--border); padding-top:12px; display:flex; flex-direction:column; gap:10px; max-height:200px; overflow-y:auto;">
+        </div>
       </div>
 
       <!-- User Individual Rating -->
@@ -734,7 +743,7 @@
 
           let dpBadgeHtml = '';
           if (item.isSpecial) {
-             dpBadgeHtml = '<div class="dish-card-badge" style="color:var(--gold-accent); border-color:var(--gold-accent); background:rgba(201,168,76,0.1);">✨ SPECIAL</div>';
+            dpBadgeHtml = '<div class="dish-card-badge" style="color:var(--gold-accent); border-color:var(--gold-accent); background:rgba(201,168,76,0.1);">✨ SPECIAL</div>';
           } else if (item.diet === 'Veg') {
             dpBadgeHtml = '<div class="dish-card-badge" style="color:#22c55e; border-color:#22c55e; background:rgba(34,197,94,0.1);">VEG</div>';
           } else if (item.diet === 'Eggitarian') {
@@ -811,7 +820,7 @@
       const dishReviews = cachedReviews.filter(r => r.itemName === item.name);
       const revContainer = document.getElementById('m-dish-reviews-container');
       const revList = document.getElementById('m-dish-reviews-list');
-      
+
       if (dishReviews.length > 0) {
         revContainer.style.display = 'block';
         revList.innerHTML = dishReviews.map(r => `

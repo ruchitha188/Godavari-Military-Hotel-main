@@ -1,4 +1,4 @@
-// ─── Raajanna Military Hotel — Auth + Nav Bootstrap ──────────────────────── 
+// ─── Godavari Military Hotel — Auth + Nav Bootstrap ──────────────────────── 
 document.addEventListener('DOMContentLoaded', () => {
   RJH.updateNav();
   setupHamburger();

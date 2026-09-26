@@ -1,5 +1,5 @@
 /**
- * Raajanna Military Hotel — 3D Gold Dust Background
+ * Godavari Military Hotel — 3D Gold Dust Background
  * Canvas-based particle system simulating 3D depth with gold shimmer
  */
 (function () {

@@ -301,7 +301,9 @@ nav {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(13, 0, 0, 0.95) 0%, rgba(60, 0, 0, 0.8) 50%, rgba(13, 0, 0, 0.92) 100%), url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200&q=80') center/cover;
+  background:
+    linear-gradient(135deg, rgba(13, 0, 0, 0.72) 0%, rgba(40, 10, 0, 0.55) 45%, rgba(13, 0, 0, 0.78) 100%),
+    url('../images/godavari-bridge.jpg') center/cover no-repeat;
 }
 
 .hero-content {

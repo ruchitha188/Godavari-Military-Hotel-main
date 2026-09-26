@@ -21,7 +21,7 @@ const DEFAULT_MENU = [
   { id: 'm010', category: 'Starters', diet: 'Non-Veg', meatType: 'Chicken', name: 'Chicken Joint Single Roast', price: 219, ingredients: 'Chicken, spices, curry leaves', description: 'Whole chicken joint slow-roasted with Andhra spices.' },
   { id: 'm011', category: 'Starters', diet: 'Non-Veg', meatType: 'Chicken', name: 'Chicken Fry Bone', price: 279, ingredients: 'Chicken bone-in, red chilli, dry spices', description: 'Bone-in chicken fried until crispy.' },
   { id: 'm012', category: 'Starters', diet: 'Non-Veg', meatType: 'Chicken', name: 'Chicken Fry Boneless', price: 309, ingredients: 'Chicken boneless, red chilli, dry spices', description: 'Boneless chicken fried to perfection.' },
-  { id: 'm013', category: 'Curries', diet: 'Non-Veg', meatType: 'Chicken', name: 'Polo Chicken', price: 329, ingredients: 'Chicken, special masala', description: 'Raajanna signature chicken.' },
+  { id: 'm013', category: 'Curries', diet: 'Non-Veg', meatType: 'Chicken', name: 'Polo Chicken', price: 329, ingredients: 'Chicken, special masala', description: 'Godavari signature chicken.' },
   { id: 'm014', category: 'Starters', diet: 'Non-Veg', meatType: 'Chicken', name: 'Chilli Chicken', price: 329, ingredients: 'Chicken, green chilli, capsicum, soy sauce', description: 'Indo-Chinese crispy chicken.' },
   { id: 'm015', category: 'Starters', diet: 'Non-Veg', meatType: 'Chicken', name: 'Chicken 65', price: 329, ingredients: 'Chicken, red chilli, curry leaves, yoghurt', description: 'Legendary Chicken 65.' },
   { id: 'm016', category: 'Starters', diet: 'Non-Veg', meatType: 'Chicken', name: 'Chicken Manchuria', price: 309, ingredients: 'Chicken, manchurian sauce, spring onion', description: 'Fried chicken in Manchurian sauce.' },
